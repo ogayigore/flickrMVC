@@ -65,6 +65,9 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="Pm6-KI-hm3"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="likeButtnPressed" destination="qdb-nQ-po5" eventType="touchUpInside" id="5Yb-su-RgM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

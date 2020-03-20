@@ -25,7 +25,6 @@ class RouterImpl: Router {
     
     func push(in vc: UIViewController, postIndex: Int) {
         print("push")
-        print("\(controllerAssembly)")
         vc.navigationController?.pushViewController(controllerAssembly.viewController(index: postIndex), animated: true)
     }
 }

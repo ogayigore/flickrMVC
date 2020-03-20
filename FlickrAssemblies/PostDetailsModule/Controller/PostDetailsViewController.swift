@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostDetailsViewController: UIViewController {
 
@@ -19,9 +20,19 @@ class PostDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.getPostToDisplay()
+        post = model.getPostToDisplay()
         // Do any additional setup after loading the view.
+        photoImageView.kf.setImage(with: post.url)
+        titleLabel.text = post.title
+        if post.isLiked {
+            likeButton.setImage(UIImage(named: "like"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(named: "unlike"), for: .normal)
+        }
     }
-
-
+    
+    @IBAction func likeButtnPressed() {
+        model.toggle(like: post.isLiked) 
+    }
+    
 }

@@ -20,9 +20,7 @@ class PostDetailsModelImpl: PostDetailsModel {
     var index = 0
     
     func getPostToDisplay() -> PresentationPostDetails {
-        return PresentationPostDetails(url: URL(string: "")!,
-                                       title: "",
-                                       isLiked: false)
+        return PresentationPostDetails(url: storage.storeArray[index].url, title: storage.storeArray[index].title, isLiked: storage.storeArray[index].like)
     }
     
     func toggle(like: Bool) {

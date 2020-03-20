@@ -14,6 +14,7 @@ protocol StorageOutput {
 
 protocol Storage {
     var output: StorageOutput? { get set }
+    var storeArray: [StoragePost] { get set }
     
     func store(array: [StoragePost])
     func load() -> [StoragePost]
