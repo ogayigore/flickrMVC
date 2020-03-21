@@ -15,4 +15,8 @@ class StorageAssembly {
         StorageAssembly.storage.output = output
         return StorageAssembly.storage
     }
+    
+    func storage() -> Storage {
+        return StorageAssembly.storage
+    }
 }

@@ -13,7 +13,7 @@ class PostDetailsModelAssembly {
     
     var model: PostDetailsModel {
         let model = PostDetailsModelImpl()
-        model.storage = storageAssembly.storage(with: nil)
+        model.storage = storageAssembly.storage()
         return model
     }
 }

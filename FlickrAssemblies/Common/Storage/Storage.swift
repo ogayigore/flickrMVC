@@ -46,7 +46,7 @@ class StorageImpl: Storage {
                                title: storeArray[index].title,
                                like: liked)
         storeArray[index] = post
-        print("post - \(post)")
+        print("post - \(post) \(output)")
         output?.collectionChanged(collection: storeArray)
     }
 }

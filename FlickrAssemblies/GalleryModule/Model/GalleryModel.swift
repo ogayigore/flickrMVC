@@ -22,7 +22,6 @@ class GalleryModelImpl: GalleryModel {
     var network: Network! //injected
     var storage: Storage! //injected
     var output: GalleryModelOutput?
-    var presentationPostsArray = [PresentationPost]()
     
     func getPosts(completion: ([PresentationPost]) -> Void) {
         
