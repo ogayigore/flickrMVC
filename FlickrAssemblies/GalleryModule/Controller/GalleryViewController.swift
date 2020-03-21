@@ -27,6 +27,14 @@ class GalleryViewController: UIViewController {
             posts = $0
         }
     }
+    
+    // MARK: - Deselect row
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: true)
+        }
+    }
 }
 
 // MARK: - Setting up UI for custom tableView cell
@@ -50,10 +58,11 @@ extension GalleryViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewReuseIdentifier, for: indexPath) as? GalleryTableViewCell else { return UITableViewCell() }
         cell.titleLabel.text = posts[indexPath.row].title
         cell.photoImageView.kf.setImage(with: posts[indexPath.row].url)
-        if posts[indexPath.row].like == true {
-           cell.likeButton.setImage(UIImage(named: "like"), for: .normal)
+        
+        if posts[indexPath.row].like {
+            cell.likeImageView.image = UIImage(named: "like")
         } else {
-            cell.likeButton.setImage(UIImage(named: "unlike"), for: .normal)
+            cell.likeImageView.image = UIImage(named: "unlike")
         }
         return cell
     }
@@ -61,14 +70,13 @@ extension GalleryViewController: UITableViewDataSource {
 
 extension GalleryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("didSelectRowAt")
-        print("indexPath.row = \(indexPath.row)")
         router?.push(in: self, postIndex: indexPath.row)
     }
 }
 
 extension GalleryViewController: GalleryModelOutput {
     func collectionChanged(collection: [PresentationPost]) {
+        print("collectionChanged in VC")
         posts = collection
         DispatchQueue.main.async {
             self.tableView.reloadData()

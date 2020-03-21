@@ -13,12 +13,6 @@ class PostDetailsModelAssembly {
     
     var model: PostDetailsModel {
         let model = PostDetailsModelImpl()
-        model.storage = storageAssembly.storage(with: model)
-        return model
-    }
-    
-    func model(withPostId postId: String) -> PostDetailsModel {
-        let model = PostDetailsModelImpl()
         model.storage = storageAssembly.storage(with: nil)
         return model
     }

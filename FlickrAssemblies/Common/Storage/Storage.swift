@@ -29,7 +29,6 @@ class StorageImpl: Storage {
     func store(array: [StoragePost]) {
         print("storage.store")
         storeArray = array
-        print("storeArray - \(storeArray)")
         output?.collectionChanged(collection: storeArray)
     }
     
@@ -38,16 +37,16 @@ class StorageImpl: Storage {
     }
     
     func like(id: String, liked: Bool) {
-        
+        print("like")
         guard let index = storeArray
             .firstIndex(where: { $0.id == id}) else { return }
         
         let post = StoragePost(url: storeArray[index].url,
                                id: id,
                                title: storeArray[index].title,
-                               like: storeArray[index].like)
-        
+                               like: liked)
         storeArray[index] = post
+        print("post - \(post)")
         output?.collectionChanged(collection: storeArray)
     }
 }

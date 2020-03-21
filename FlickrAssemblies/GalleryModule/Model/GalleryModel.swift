@@ -37,7 +37,7 @@ class GalleryModelImpl: GalleryModel {
 
 extension GalleryModelImpl: StorageOutput {
     func collectionChanged(collection: [StoragePost]) {
-        print("collectionChanged")
+        print("collectionChanged in model")
         output?.collectionChanged(collection: collection.map { post in PresentationPost(url: post.url, title: post.title, like: post.like)})
     }
 }

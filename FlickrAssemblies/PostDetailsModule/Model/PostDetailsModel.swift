@@ -11,27 +11,20 @@ import Foundation
 protocol PostDetailsModel {
     var index: Int { get set }
     func getPostToDisplay() -> PresentationPostDetails
-    func toggle(like: Bool)
+    func toggle(postId: String, like: Bool)
 }
 
 class PostDetailsModelImpl: PostDetailsModel {
     var storage: Storage! //injected
-    var postId: String! //injected
     var index = 0
     
     func getPostToDisplay() -> PresentationPostDetails {
-        return PresentationPostDetails(url: storage.storeArray[index].url, title: storage.storeArray[index].title, isLiked: storage.storeArray[index].like)
+        
+        return PresentationPostDetails(id: storage.storeArray[index].id, url: storage.storeArray[index].url, title: storage.storeArray[index].title, isLiked: storage.storeArray[index].like)
     }
     
-    func toggle(like: Bool) {
+    func toggle(postId: String, like: Bool) {
+        print("toggle")
         storage.like(id: postId, liked: like)
-    }
-}
-
-extension PostDetailsModelImpl: StorageOutput {
-    func collectionChanged(collection: [StoragePost]) {
-        collection.map { post in
-            PresentationPostDetails(url: post.url, title: post.title, isLiked: post.like)
-        }
     }
 }

@@ -23,9 +23,7 @@ class GalleryViewControllerAssembly {
     var viewController: GalleryViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "GalleryViewController") as! GalleryViewController
-        var model = modelAssembly.model
-        controller.model = model
-        model.output = controller
+        controller.model = modelAssembly.model(output: controller)
         controller.router = routerAssembly.router
         return controller
     }

@@ -11,7 +11,7 @@ import UIKit
 class GalleryTableViewCell: UITableViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var likeImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

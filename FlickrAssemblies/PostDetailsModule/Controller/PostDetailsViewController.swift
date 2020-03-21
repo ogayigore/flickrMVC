@@ -12,7 +12,6 @@ import Kingfisher
 class PostDetailsViewController: UIViewController {
 
     var model: PostDetailsModel! //injected
-    var post: PresentationPostDetails! 
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,19 +19,30 @@ class PostDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        post = model.getPostToDisplay()
-        // Do any additional setup after loading the view.
+        let post = model.getPostToDisplay()
+        print("post - \(post)")
+        
         photoImageView.kf.setImage(with: post.url)
         titleLabel.text = post.title
-        if post.isLiked {
-            likeButton.setImage(UIImage(named: "like"), for: .normal)
+        
+        setStateButton()
+    }
+    
+    @IBAction func likeButtonPressed() {
+        print("likeButtonPressed")
+        let post = model.getPostToDisplay()
+        model.toggle(postId: post.id, like: !post.isLiked)
+        setStateButton()
+    }
+    
+}
+
+extension PostDetailsViewController {
+    func setStateButton() {
+        if model.getPostToDisplay().isLiked {
+            likeButton.setBackgroundImage(UIImage(named: "like"), for: .normal)
         } else {
-            likeButton.setImage(UIImage(named: "unlike"), for: .normal)
+            likeButton.setBackgroundImage(UIImage(named: "unlike"), for: .normal)
         }
     }
-    
-    @IBAction func likeButtnPressed() {
-        model.toggle(like: post.isLiked) 
-    }
-    
 }

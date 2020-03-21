@@ -25,31 +25,30 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyV-tg-mWY">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h2X-Nk-alT">
                         <rect key="frame" x="272" y="137" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="dwN-9p-zGO"/>
-                            <constraint firstAttribute="width" constant="40" id="l5J-8V-MWj"/>
+                            <constraint firstAttribute="height" constant="40" id="YLi-ki-2eP"/>
+                            <constraint firstAttribute="width" constant="40" id="c4H-qv-TgD"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
-                    </button>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qyV-tg-mWY" firstAttribute="top" secondItem="h1n-Uu-Vrv" secondAttribute="top" id="ATp-j5-cOx"/>
+                    <constraint firstItem="h2X-Nk-alT" firstAttribute="leading" secondItem="h1n-Uu-Vrv" secondAttribute="trailing" constant="8" id="55j-O0-XxJ"/>
+                    <constraint firstAttribute="bottom" secondItem="h2X-Nk-alT" secondAttribute="bottom" constant="8" id="6li-fx-Q6M"/>
                     <constraint firstAttribute="trailing" secondItem="k9X-ce-40v" secondAttribute="trailing" id="AsE-KL-ptl"/>
                     <constraint firstAttribute="bottom" secondItem="h1n-Uu-Vrv" secondAttribute="bottom" constant="8" id="D0L-f6-dpj"/>
-                    <constraint firstAttribute="bottom" secondItem="qyV-tg-mWY" secondAttribute="bottom" constant="8" id="E1G-IW-J6I"/>
                     <constraint firstItem="k9X-ce-40v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="NXr-P9-VuK"/>
-                    <constraint firstAttribute="trailing" secondItem="qyV-tg-mWY" secondAttribute="trailing" constant="8" id="O7E-Px-orO"/>
                     <constraint firstItem="h1n-Uu-Vrv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Pg5-rQ-eGI"/>
                     <constraint firstItem="k9X-ce-40v" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="b0J-kp-eB4"/>
                     <constraint firstItem="h1n-Uu-Vrv" firstAttribute="top" secondItem="k9X-ce-40v" secondAttribute="bottom" constant="8" id="khg-R8-QK7"/>
-                    <constraint firstItem="qyV-tg-mWY" firstAttribute="leading" secondItem="h1n-Uu-Vrv" secondAttribute="trailing" constant="8" id="xDw-Mr-0I0"/>
+                    <constraint firstAttribute="trailing" secondItem="h2X-Nk-alT" secondAttribute="trailing" constant="8" id="v0j-Zu-4G5"/>
+                    <constraint firstItem="h2X-Nk-alT" firstAttribute="top" secondItem="k9X-ce-40v" secondAttribute="bottom" constant="8" id="wJW-71-JiH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="likeButton" destination="qyV-tg-mWY" id="U2E-PD-td4"/>
+                <outlet property="likeImageView" destination="h2X-Nk-alT" id="8VX-50-BDa"/>
                 <outlet property="photoImageView" destination="k9X-ce-40v" id="Cfo-tz-7fE"/>
                 <outlet property="titleLabel" destination="h1n-Uu-Vrv" id="BXT-qi-Aiw"/>
             </connections>

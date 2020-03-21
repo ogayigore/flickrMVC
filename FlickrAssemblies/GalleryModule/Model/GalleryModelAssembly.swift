@@ -19,6 +19,14 @@ class GalleryModelAssembly {
         return model
     }
     
+    func model(output: GalleryModelOutput) -> GalleryModel {
+        let model = GalleryModelImpl()
+        model.network = networkAssembly.network(with: networkAssembly.urlSessionProvider)
+        model.storage = storageAssembly.storage(with: model)
+        model.output = output
+        return model
+    }
+    
     func model(withStorageOutput output: StorageOutput) -> GalleryModel {
         let model = GalleryModelImpl()
         model.network = networkAssembly.network(with: networkAssembly.urlSessionProvider)
